@@ -15,9 +15,16 @@ app.get("/", (req, res) => {
     res.send(users)
 })
 
-app.get("/:idx", (req, res) => {
-    const idx = parseInt(req.params.idx);
-    res.send(users[idx]);
+app.get("/:id", (req, res) => {
+    const id = Number(req.params.id);
+
+    const user = users.find((user) => user.id === id);
+
+    if (user) {
+        res.send(user);
+    } else {
+        res.status(404).send("User not found");
+    }
 });
 
 // app.get("/", (req, res) => {
