@@ -1,12 +1,8 @@
 import express from 'express';
+import { getProductData, postProductData } from '../controllers/productController.js';
 
 const productRouter = express.Router();
-productRouter.get("/", (req,res) => {
-    res.send("Hello productRouter");
-})
-
-productRouter.post("/",(req,res) => {
-    res.send("Product data received");
-})
+productRouter.get("/", getProductData);
+productRouter.post("/", postProductData);
 
 export default productRouter;
