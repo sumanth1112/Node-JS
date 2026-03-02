@@ -1,15 +1,5 @@
-import express from 'express';
 
-const app = express();
-const PORT = process.argv[2];
+let num1 = process.argv[2];
+let num2 = process.argv[3];
 
-app.listen(PORT, () => {
-    console.log(`Server Started on port ${PORT}`);
-});
-
-app.get("/", (req, res) => {
-    const num1 = Number(process.argv[3]);
-    const num2 = Number(process.argv[4]);
-
-    res.send(`Sum is ${num1 + num2}`);
-});
+console.log(Number(num1) + Number(num2))
